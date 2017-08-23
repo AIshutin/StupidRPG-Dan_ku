@@ -1,0 +1,7 @@
+Stages 6
+Old_Cave 7 Strange_Slimy_Goo 20 4 4 0
+City_Catacombs 12 Patrol_Captain 32 8 5 1
+Ensealed_Shaft 18 Undead_Goliath 50 10 12 2
+Underground_Vault 28 Workshop_Guardian 70 18 22 3
+Ancient_Temple 50 Mist_Of_Dimensions 100 26 32 4
+Daemonal_Realm 76 Demon_King 140 40 36 5
