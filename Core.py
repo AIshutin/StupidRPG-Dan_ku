@@ -43,12 +43,12 @@ def Luck(ans,stg):
     if ans==2 or ans==3 or ans==4:
         x=randint(1,len(Traps[stg])-1)
         if Traps[stg][x][2]=='s':
-            print("You see",*Traps[stg][x][0].split('_'),"!")
+            print("You see",Traps[stg][x][0].replace('_', " "),"!")
         else:
             print("It's a corridor, but it is strange.")
     elif ans==5 or ans==6 or ans==7 or ans==8 or ans==9:
         x=randint(1,len(Enemies[stg])-1)
-        print("You encountered",*Enemies[stg][x][0].split('_'),"!")
+        print("You encountered",Enemies[stg][x][0].replace('_', " "),"!")
     elif ans==10 or ans==11:
         x=randint(1,10)
         y=randint(1,2)*10
@@ -183,13 +183,13 @@ while True:
                 Character['Alt'][1]=3
 
             if Character['Alt'][1]==0:
-                print("You're now wandering in the",*Stages[Character['Alt'][0]-1][0].split('_'),"while trying to find a boss or a path down.")
+                print("You're now wandering in the",Stages[Character['Alt'][0]-1][0].replace('_', " "),"while trying to find a boss or a path down.")
                 Character['Alt'][1]=1
             if Character['Alt'][1]==1:
                 if Character['Dmg']+Character['Block']>=int(Stages[Character['Alt'][0]-1][1]) and Character['Alt'][1]==1:
                     Character['Alt'][1]=2    
                     print("You can hear strange sounds from the next segment of the corridor. You move forward.")
-                    print("You have encountered the",*Stages[Character['Alt'][0]-1][2].split('_'),"!")
+                    print("You have encountered the",Stages[Character['Alt'][0]-1][2].replace('_', " "),"!")
                     mhp=int(Stages[Character['Alt'][0]-1][3])
                     mdmg=int(Stages[Character['Alt'][0]-1][4])-int(Character['Block'])
                     if mdmg<0:
@@ -228,21 +228,21 @@ while True:
                                 Character["mhp"] = mhp
                                 if mhp>0:
                                     if Character['Alt'][1]==2:
-                                        print("The ",*Stages[Character['Alt'][0]-1][2].split('_')," is now on ",mhp," health points.")
+                                        print("The ",Stages[Character['Alt'][0]-1][2].replace('_', " ")," is now on ",mhp," health points.")
                                     else:
-                                        print("Your enemy,",*Enemies[Character['Alt'][0]-1][moment][0].split('_')[1:],", is now on ",mhp," health points.")
+                                        print("Your enemy,",Enemies[Character['Alt'][0]-1][moment][0].replace('_', " ")[1:],", is now on ",mhp," health points.")
                                 else:
                                     if Character['Alt'][1]==2:
-                                        print("Congratiulations! You have defeated the",*Stages[Character['Alt'][0]-1][2].split('_'),"!")
+                                        print("Congratiulations! You have defeated the",Stages[Character['Alt'][0]-1][2].replace('_', " "),"!")
                                         Character['Alt'][1]=0
                                         Character['Alt'][0]+=1                    
                                         Character["situation"]=1
                                         Character['Fight']=False
                                     else:
-                                        print("You killed",*Enemies[Character['Alt'][0]-1][moment][0].split('_')[1:])
+                                        print("You killed",Enemies[Character['Alt'][0]-1][moment][0].replace('_', " ")[1:])
                                         Character['Fight']=False
                                         loot=randint(0,len(Goods[Character['Alt'][0]-1])-1)
-                                        print("You found",*Goods[Character['Alt'][0]-1][loot][0].split('_')," with stats ",Goods[Character['Alt'][0]-1][loot][1],"/",Goods[Character['Alt'][0]-1][loot][2],"!")
+                                        print("You found",Goods[Character['Alt'][0]-1][loot][0].replace('_', " ")," with stats ",Goods[Character['Alt'][0]-1][loot][1],"/",Goods[Character['Alt'][0]-1][loot][2],"!")
                                         print("Want to equip?")
                                         Character["situation"] = 13
                                         Character["loot"] = loot
@@ -258,7 +258,7 @@ while True:
                                     mar=0
                                 Character["mar"] = mar
                                 if Character['Alt'][1]==2:
-                                    print("The ",*Stages[Character['Alt'][0]-1][2].split('_')," is now on ",mhp," health points.")
+                                    print("The ",Stages[Character['Alt'][0]-1][2].replace('_', " ")," is now on ",mhp," health points.")
                                 else:
                                     print("The ",Enemies[Character['Alt'][0]-1][moment][0]," is now on ",mhp," health points.",sep='')
                             elif Book[spl][2]=='in':
@@ -267,7 +267,7 @@ while True:
                                     mdmg=0
                                 Character["mdmg"] = mdmg
                                 if Character['Alt'][1]==2:
-                                    print("The ",*Stages[Character['Alt'][0]-1][2].split('_')," is now on ",mhp," health points.")
+                                    print("The ",Stages[Character['Alt'][0]-1][2].replace('_', " ")," is now on ",mhp," health points.")
                                 else:
                                     print("The ",Enemies[Character['Alt'][0]-1][moment][0]," is now on ",mhp," health points.")
                 except:
@@ -360,22 +360,22 @@ while True:
                     Character["mhp"] -= mdin
                     if mhp>0:
                         if Character['Alt'][1]==2:
-                            print("The ",*Stages[Character['Alt'][0]-1][2].split('_')," is now on ",mhp," health points.")
+                            print("The ",Stages[Character['Alt'][0]-1][2].replace('_', " ")," is now on ",mhp," health points.")
                         else:
-                            print("Your enemy,",*Enemies[Character['Alt'][0]-1][moment][0].split('_'),", is now on ",mhp," health points.")
+                            print("Your enemy,",Enemies[Character['Alt'][0]-1][moment][0].replace('_', " "),", is now on ",mhp," health points.")
                     else:
                         if Character['Alt'][1]==2:
-                            print("Congratiulations! You have defeated the",*Stages[Character['Alt'][0]-1][2].split('_'),"!")
+                            print("Congratiulations! You have defeated the",Stages[Character['Alt'][0]-1][2].replace('_', " "),"!")
                             Character['Alt'][1]=0
                             Character['Alt'][0]+=1                    
                             Character["situation"]=1
                             Character['Fight']=False
                         else:
-                            print("You killed",*Enemies[Character['Alt'][0]-1][moment][0].split('_'))
+                            print("You killed",Enemies[Character['Alt'][0]-1][moment][0].replace('_', " "))
                             Character['Fight']=False
                             loot=randint(0,len(Goods[Character['Alt'][0]-1])-1)
                             Character["loot"] = loot
-                            print("You found",*Goods[Character['Alt'][0]-1][loot][0].split('_')," with stats ",Goods[Character['Alt'][0]-1][loot][1],"/",Goods[Character['Alt'][0]-1][loot][2],"!")
+                            print("You found",Goods[Character['Alt'][0]-1][loot][0].replace('_', " ")," with stats ",Goods[Character['Alt'][0]-1][loot][1],"/",Goods[Character['Alt'][0]-1][loot][2],"!")
                             print("Want to equip?")
                             Character["situation"] = 13
             elif com=='take':
@@ -451,7 +451,7 @@ while True:
                         continue
             elif com=='stats':
                 print("You have",Character['Hp'],"health points,",Character['Mp'],"mana points,",Character['Dmg'],"attack points and",Character['Block'],"armor points.")
-                print("You're equipped with",*Character['Weapon'].split('_'),"and wear",*Character['Armor'].split('_'))
+                print("You're equipped with",Character['Weapon'].replace('_', " "),"and wear",Character['Armor'].replace('_', " "))
             elif com=='help':
                 print('To go forward, print "move". To attack an enemy, print "hit".')
                 print('To use a spell, print "cast" and then the name of the spell from the list (with high-case).')
@@ -473,7 +473,7 @@ while True:
                 if Character['Hp']>0:
                     print("Your enemy damaged you for",mdmg,"health points!")
                 else:
-                    print("You got killed by",*Enemies[Character['Alt'][0]-1][moment][0].split('_'))
+                    print("You got killed by",Enemies[Character['Alt'][0]-1][moment][0].replace('_', " "))
                     Character['Dead']=True
             else:
                 Character['Hp']+=Character['HpReg']
