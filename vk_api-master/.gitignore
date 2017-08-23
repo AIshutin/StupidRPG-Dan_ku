@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+build/
+dist/
+*.pyc
+MANIFEST
+.project
+.pydevproject
+.settings/
+testing/
+tests/
+vk_config.json
+vk_config.v2.json
